@@ -21,7 +21,13 @@ public class Nick extends Command {
                 return;
             }
             if (args.length == 0) {
-                Messanger.sendMessage((ProxiedPlayer) sender, ChatColor.RED + "パラメータが必要です");
+                HypixelRank.config.set(((ProxiedPlayer) sender).getUniqueId() + ".name", sender.getName());
+                Messanger.sendMessage((ProxiedPlayer) sender, ChatColor.GREEN + "リセットしました");
+                if(HypixelRank.config.getString(((ProxiedPlayer) sender).getUniqueId() + ".rank") == null) {
+                    ((ProxiedPlayer) sender).setDisplayName("[" + HypixelRank.getLuckPerms().getUserManager().getUser(((ProxiedPlayer) sender).getUniqueId()).getCachedData().getMetaData().getPrefix() + "]" + sender.getName());
+                }else {
+                    ((ProxiedPlayer) sender).setDisplayName("[" + HypixelRank.config.getString(((ProxiedPlayer) sender).getUniqueId() + ".rank") + "]" + sender.getName());
+                }
                 return;
             }
             HypixelRank.config.set(((ProxiedPlayer) sender).getUniqueId() + ".name", args[0]);
@@ -30,6 +36,7 @@ public class Nick extends Command {
             }else {
                 ((ProxiedPlayer) sender).setDisplayName("[" + HypixelRank.config.getString(((ProxiedPlayer) sender).getUniqueId() + ".rank") + "]" + args[0]);
             }
+            Messanger.sendMessage((ProxiedPlayer) sender, ChatColor.GREEN + "変更しました");
         }else {
             HypixelRank.getInstance().getLogger().info("コンソール上のコマンド送信は対応してません");
         }
