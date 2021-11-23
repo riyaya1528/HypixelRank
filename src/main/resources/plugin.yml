@@ -1,0 +1,16 @@
+name: HypixelRank
+version: '${project.version}'
+main: net.riyaya.bungee.hypixelrank.HypixelRank
+author: riyaya1528
+load: POSTWORLD
+commands:
+  nick:
+    description: "Setting nickname for player."
+  ranknick:
+    description: "Setting custom rank for player."
+
+permissions:
+  HypixelRank.command.nick:
+    description: "Can user nickName"
+  HypixelRank.command.ranknick:
+    description: "Can use rankNick"

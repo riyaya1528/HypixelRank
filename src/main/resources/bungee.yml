@@ -1,0 +1,5 @@
+name: HypixelRank
+version: '${project.version}'
+main: net.riyaya.bungee.hypixelrank.HypixelRank
+author: riyaya1528
+softdepends: [LuckPerms]
