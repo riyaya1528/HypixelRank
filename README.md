@@ -1,0 +1,2 @@
+# HypixelRank
+For Akkey
